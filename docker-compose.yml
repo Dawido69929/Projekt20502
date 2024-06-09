@@ -1,0 +1,37 @@
+
+services:
+  webapp:
+    build:
+      context: ./web_app
+      dockerfile: Dockerfile.flask
+    ports:
+      - "5000:5000"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_HOST=mongodb  # Replace with your MongoDB host
+      - MONGO_PORT=27017    # Replace with your MongoDB port
+    depends_on:
+      - mongodb
+
+  scraper:
+    build:
+      context: ./scraper
+      dockerfile: Dockerfile.scraper
+    environment:
+      - MONGO_HOST=mongodb  # Replace with your MongoDB host
+      - MONGO_PORT=27017    # Replace with your MongoDB port
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
+    driver: local

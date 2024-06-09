@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongodb-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi  # Adjust size as needed
+  storageClassName: manual  # Must match the PersistentVolume's storageClassName
+  volumeName: mongodb-pv  # Name of the PersistentVolume you want to claim

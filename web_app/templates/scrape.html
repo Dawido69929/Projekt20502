@@ -1,0 +1,20 @@
+<!-- scrape.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrape Articles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Scrape Articles</h1>
+        <form method="POST" action="{{ url_for('scrape') }}">
+            <button type="submit" class="btn btn-primary">Scrape Articles</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Articles</a>
+    </div>
+</body>
+</html>

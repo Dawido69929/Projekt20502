@@ -1,0 +1,26 @@
+<!-- details.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Article Details</h1>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p class="card-text">{{ article.description }}</p>
+                <p class="card-text">{{ article.content }}</p>
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Articles</a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

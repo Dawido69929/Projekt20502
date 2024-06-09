@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saved Articles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Saved Articles</h1>
+    <div id="articles">
+        {% for article in articles %}
+        <div>
+            <!-- Display saved article details -->
+            <h2>{{ article.article_data.title }}</h2>
+            <p>{{ article.article_data.description }}</p>
+            <a href="{{ article.article_data.url }}" target="_blank">Read More</a>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('index') }}">Back to home</a>
+</body>
+</html>
